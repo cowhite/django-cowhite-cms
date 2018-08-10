@@ -43,6 +43,8 @@ class Page(DateTimeBase):
     slug = models.SlugField(max_length=500, unique=True, blank=True)
     cover_image = models.ImageField(
         upload_to='blog_post_images', null=True, blank=True)
+    title_on_image = models.CharField(
+        max_length=255, null=True, blank=True, help_text="Optional. Defaults to page title.")
     content = models.TextField()
     status = models.CharField(
         choices=PUBLISH_STATUS_CHOICES, max_length=1,
@@ -75,6 +77,8 @@ class Page(DateTimeBase):
             self.seo_title = self.title
         if not self.seo_description:
             self.seo_description = "%s..." % self.content.split("\n")[0][:250]
+        if not self.title_on_image:
+            self.title_on_image = self.title
         super(Page, self).save(*args, **kwargs)
 
 

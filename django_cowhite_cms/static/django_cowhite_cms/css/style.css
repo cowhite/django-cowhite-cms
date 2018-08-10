@@ -32,6 +32,7 @@ body a {
 }
 .blog .author-info {
   font-weight: bold;
+  text-align: center;
 }
 .blog .post-summary {
   margin-top: 10px;
@@ -50,4 +51,11 @@ footer {
 }
 .pagination {
   padding: 15px 0;
+}
+.blog .cover-image {
+  padding: 200px;
+  text-align: center;
+}
+.blog .cover-image h1 {
+  font-size: 5rem;
 }
